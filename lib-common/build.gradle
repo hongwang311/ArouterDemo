@@ -1,0 +1,120 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+def dbFlowVersion = "4.2.4"
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//java  Arouter配置
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [ moduleName : project.getName() ]
+//            }
+//        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+kapt {
+    arguments {
+        arg("moduleName","lib-common")
+    }
+}
+
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //解析库
+    api "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+
+    //图片缩放
+    api "com.commit451:PhotoView:$rootProject.ext.photoViewVersion"
+    api "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
+
+    //轮播图
+    api "com.youth.banner:banner:$rootProject.ext.bannerVersion"
+    api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+
+    //    //rxjava
+
+    //    api "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.adapterVersion"
+    api "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
+    api "com.jakewharton.rxbinding2:rxbinding:$rootProject.ext.rxbindingVersion"
+    api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
+
+    //管理生命周期
+    api 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+
+    //日志打印
+    api "org.apache.servicemix.logging:logging:$rootProject.ext.loggingVersion"
+
+    //解析库
+    api "com.squareup.retrofit2:converter-gson:$rootProject.ext.converterGsonVersion"
+
+    //adapter 通用的recycleradaoter
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.baseRecyclerViewAdapterHelperVersion"
+    api "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+
+    //图片压缩
+    api "com.github.nanchen2251:CompressHelper:$rootProject.ext.compressHelperVersion"
+
+    //图片变换开源库
+    api "jp.wasabeef:glide-transformations:$rootProject.ext.glideTransformationsVersion"
+
+    //适配库
+    api 'com.bulong.rudeness:rudeness:latest.release@aar'
+
+    //沉浸式库
+    api "com.gyf.barlibrary:barlibrary:$rootProject.ext.barlibraryVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //路由
+    api "com.alibaba:arouter-api:$rootProject.ext.arouterApiVersion"
+    kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouterCompilerVersion"
+
+    //数据库
+    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbFlowVersion}"
+    api "com.github.Raizlabs.DBFlow:dbflow-core:${dbFlowVersion}"
+    api "com.github.Raizlabs.DBFlow:dbflow:${dbFlowVersion}"
+
+    //动态权限
+    api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
+    //管理生命周期
+    api "com.trello.rxlifecycle2:rxlifecycle-android-lifecycle-kotlin:$rxlifecycleAndroidLifecycleKotlin"
+}
+repositories {
+    mavenCentral()
+}

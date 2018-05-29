@@ -1,0 +1,37 @@
+ext {
+
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.3'
+    targetSdkVersion = 27
+    minSdkVersion = 19
+    versionCode = 1
+    versionName = "1.0"
+    applicationId = "cn.yihuzhijia.time"
+
+    // App dependencies
+    supportVersion = '27.1.1'
+    gsonVersion = '2.8.2'
+    photoViewVersion = '1.2.5'
+    okhttpVersion = '3.10.0'
+    bannerVersion = '1.4.10'
+    retrofitVersion = '2.4.0'
+    adapterVersion = '1.0.1'
+    rxjavaVersion = '2.1.13'
+    rxbindingVersion = '2.1.1'
+    rxandroidVersion = '2.0.2'
+    loggingVersion = '7.0.1'
+    converterGsonVersion = '2.4.0'
+    baseRecyclerViewAdapterHelperVersion = '2.9.25'
+    glideVersion = '4.7.1'
+    glideTransformationsVersion = '3.3.0'
+    compressHelperVersion = '1.0.5'
+    barlibraryVersion = '2.3.0'
+
+    arouterApiVersion = '1.3.1'
+    arouterCompilerVersion = '1.1.4'
+
+    constraintLayoutVersion = '1.1.0'
+
+    rxlifecycleAndroidLifecycleKotlin = '2.2.1'
+
+}
